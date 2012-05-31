@@ -14,7 +14,9 @@ class ThreadPool
               reset_block  
             end  
 	  rescue Exception => ex
-            log( APP_ERROR_LOG_PATH , ex.message + "\n" +  ex.backtrace.join("\n"));
+		puts ex.message + "\n" +  ex.backtrace.join("\n");
+		log( APP_ERROR_LOG_PATH , ex.message + "\n" +  ex.backtrace.join("\n"));
+	    reset_block
 	  end  
         end  
       end  

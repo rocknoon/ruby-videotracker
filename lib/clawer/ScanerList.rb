@@ -24,6 +24,10 @@ module Clawer
 				@list[url] = url;
 			end
 		end
+
+		def size
+			@list.size;
+		end
 			
 		def fetch
 			node = @list.shift();
