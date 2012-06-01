@@ -1,7 +1,9 @@
 #!/usr/local/ruby/bin/ruby
+require 'pathname'
+
 
 #当前 APP 的Path
-APP_PATH = '/home/www/workspace/videotracker';
+APP_PATH = (Pathname.new(File.dirname(__FILE__)).realpath).to_s;
 APP_LIB_PATH = APP_PATH + '/lib';
 APP_ERROR_LOG_PATH = APP_PATH + '/logs/error.log';
 
@@ -10,13 +12,14 @@ APP_ERROR_LOG_PATH = APP_PATH + '/logs/error.log';
 # Mysql configuration
 # ===
 APP_MYSQL_HOST = '127.0.0.1';
-APP_MYSQL_USER = 'root';
-APP_MYSQL_PWD = 'l2117839';
+APP_MYSQL_USER = 'weflex_dingen';
+APP_MYSQL_PWD = 'dingen';
 APP_MYSQL_DB = 'videotracker';
 
 #参与 clawer 的Portal 列表
 VT_Portals = {
-	:youku => { :domain => "youku.com" , :videoReg => /http:\/\/v.youku.com\/v_show\/id_.*?\.html/ }
+	:youku => { :domain => "youku.com" , :videoReg => /http:\/\/v.youku.com\/v_show\/id_.*?\.html/ },
+	:tudou => { :domain => "tudou.com" , :videoReg => /http:\/\/www.tudou.com\/programs\/view\/[^\/'"]+/ }
 };
 
 require APP_LIB_PATH + '/functions'
